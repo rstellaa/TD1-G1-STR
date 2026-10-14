@@ -1,0 +1,6 @@
+Ce fichier contient 79 mots, 6 lignes et 480 caractères
+De façon à ne pas trop compliquer les traitements, on considérera qu'un mot est une     séquence     de caractères encadrée de séparateurs      
+Dans un premier temps, seuls trois séparateurs seront pris en compte : le saut de ligne, l’espace et le caractère de tabulation ('\t')
+Attention donc aux séparateurs multiples au milieu ou       
+à la fin des lignes ! 
+Pour les afficher, vous pouvez utiliser la commande cat -A !

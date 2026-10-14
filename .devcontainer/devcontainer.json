@@ -1,0 +1,8 @@
+{
+    "name": "AAP Centrale Lille - Découverte de l'environnement",
+
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "remoteUser": "aap"
+}
