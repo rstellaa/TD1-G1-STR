@@ -4,7 +4,8 @@
 
 def saisie():
     """Lecture depuis l'entrée standard"""
-    return ""
+    s=input("Quel est ton nom?")
+    print("Bonjour"+ s+"!")
 
 if __name__ == "__main__":
     saisie()
