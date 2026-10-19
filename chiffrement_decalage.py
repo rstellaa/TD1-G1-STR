@@ -16,7 +16,62 @@
 - Une fois le programme mis au point, poussez votre travail sur votre dépôt git et appelez l'enseignant avant de passer à l'exercice suivant."""
 
 
+import sys
+
+
+def traiterArguments():
+  if len(sys.argv) < 2:
+    return 3
+
+  arg = sys.argv[1]
+
+  try:
+    if arg.startswith("-"):
+      if arg[1:].isnumeric():
+        return int(arg)
+    else:
+      if arg.isnumeric():
+        return int(arg)
+  except ValueError:
+    pass
+
+   raise ValueError("Le décalage doit être un nombre entier.")
+
+
+def lireStdin():
+  return sys.stdin.read()
+
+
+def chiffrer(texte, dec):
+  resultat = []
+
+  for c in texte:
+    if c in "àâäéèêëîïôöùûüçÀÂÄÉÈÊËÎÏÔÖÙÛÜÇ":
+      if c.islower():
+        resultat.append(c.isupper())  # ou swapcase()
+        resultat.append(c.upper())
+      else:
+        resultat.append(c.lower())
+      continue
+
+    if "a" <= c <= "z" or "A" <= c <= "Z":
+      base = ord("a") if c.islower() else ord("A")
+     code = (ord(c) - base + dec) % 26 # Appliquer le décalage modulo 26
+      nouveau_caractere = chr(base + code)
+    else:
+      nouveau_caractere = c
+
+    if nouveau_caractere.islower():
+      resultat.append(nouveau_caractere.upper())
+    elif nouveau_caractere.isupper():
+      resultat.append(nouveau_caractere.lower())
+    else:
+      resultat.append(nouveau_caractere)
+
+  return "".join(resultat)
+
+
 if __name__ == "__main__":
-    dec = traiterArguments()
-    s1 = lireStdin()
-    print(chiffrer(s1,dec), end="")
+  dec = traiterArguments()
+  s1 = lireStdin()
+  print(chiffrer(s1, dec), end="")
