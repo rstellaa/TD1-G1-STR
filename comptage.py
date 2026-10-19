@@ -10,8 +10,9 @@
 
 
 def lire():
-    # récupération des arguments et sélection du flux
-    # parcours du flux
+    chemin = sys.argv[1] 
+    flux=open(chemin,"r")
+    chaine=flux.read()
     # comptage
     # affichage 
     return ""
